@@ -1,0 +1,14 @@
+-- a line comment
+import "maybe.muro"
+data List (A : Type) : Type where
+  nil  : List A
+  cons : A → List A → List A
+def length : List A → Nat
+[]
+%0
+%1
+lam (x : Nat) → x
+b"HTTP/1.1"
+"hi\"there"
+Nat->Nat
+foo-bar

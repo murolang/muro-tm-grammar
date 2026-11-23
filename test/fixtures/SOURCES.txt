@@ -1,0 +1,10 @@
+Test fixtures are copies of real Muro books, included so CI can tokenize them without any other checkout. All are MIT.
+
+- list.muro — https://github.com/murolang/muro/blob/3a5369fb325141d0228c33536ead26f26a7d5ae0/lib/muro/std/list.muro
+  License: MIT, Copyright (c) 2026 Murolang
+- session.muro — https://github.com/doctorcorral/muro-http/blob/c8c0105ab0b2799ad96c214f2ff2c9b5685251e3/priv/muro/http/session.muro
+  License: MIT, Copyright (c) 2026 Murolang
+- request.muro — https://github.com/doctorcorral/muro-http/blob/c8c0105ab0b2799ad96c214f2ff2c9b5685251e3/priv/muro/http/request.muro
+  License: MIT, Copyright (c) 2026 Murolang
+- data.muro — https://github.com/doctorcorral/muro-beam/blob/cbd2d07d586923339f31748468efef53e69adb4b/book/data.muro
+  License: MIT, Copyright (c) 2026 Ricardo Corral-Corral

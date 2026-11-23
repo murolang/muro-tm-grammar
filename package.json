@@ -1,0 +1,53 @@
+{
+  "name": "muro-tm-grammar",
+  "displayName": "Muro",
+  "description": "TextMate grammar for the Muro language (source.muro)",
+  "version": "0.1.0",
+  "publisher": "murolang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/murolang/muro-tm-grammar"
+  },
+  "homepage": "https://muro-lang.dev",
+  "bugs": {
+    "url": "https://github.com/murolang/muro-tm-grammar/issues"
+  },
+  "engines": {
+    "vscode": "^1.74.0",
+    "node": ">=18"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "muro",
+        "aliases": [
+          "Muro",
+          "muro",
+          "murolang"
+        ],
+        "extensions": [
+          ".muro"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "muro",
+        "scopeName": "source.muro",
+        "path": "./muro.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node test/run.mjs"
+  },
+  "devDependencies": {
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.2.0"
+  }
+}

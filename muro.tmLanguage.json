@@ -1,0 +1,148 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Muro",
+  "scopeName": "source.muro",
+  "fileTypes": [
+    "muro"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#nil"
+    },
+    {
+      "include": "#multiplicities"
+    },
+    {
+      "include": "#symbolic-operators"
+    },
+    {
+      "include": "#definitions"
+    },
+    {
+      "include": "#declarations"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#word-operators"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#identifiers"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#punctuation"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-dash.muro",
+          "match": "--.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.byte.muro",
+          "begin": "b\"",
+          "end": "\"|(?=$)",
+          "patterns": [
+            {
+              "name": "constant.character.escape.muro",
+              "match": "\\\\[\\\\\"]"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.muro",
+          "begin": "\"",
+          "end": "\"|(?=$)",
+          "patterns": [
+            {
+              "name": "constant.character.escape.muro",
+              "match": "\\\\[\\\\\"]"
+            }
+          ]
+        }
+      ]
+    },
+    "nil": {
+      "name": "constant.language.nil.muro",
+      "match": "\\[\\]"
+    },
+    "multiplicities": {
+      "name": "keyword.operator.multiplicity.muro",
+      "match": "%[01](?=$|->|[^A-Za-z0-9_']|-(?!>))"
+    },
+    "symbolic-operators": {
+      "name": "keyword.operator.muro",
+      "match": "λ¹|→|≡|≤|⊎|⊢|⊸|->|-o|::|:=|<=|==|=>|×|Π|λ|ω|\\*|\\+|-|<|=|~"
+    },
+    "definitions": {
+      "begin": "(?<=^|->|[^A-Za-z0-9_'\\-])(?:choreography|endpoint|temporal|conform|session|family|prefix|scheme|axiom|param|place|data|link|meet|repr|seat|talk|def|nu|ν)(?=$|->|[^A-Za-z0-9_']|-(?!>))",
+      "end": "(?=[A-Za-z_](?:[A-Za-z0-9_']|-(?!>))*)[A-Za-z_](?:[A-Za-z0-9_']|-(?!>))*|(?=\\S)|$",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.declaration.muro"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "entity.name.function.muro"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "name": "comment.line.double-dash.muro",
+          "match": "--.*$"
+        }
+      ]
+    },
+    "declarations": {
+      "name": "keyword.declaration.muro",
+      "match": "(?<=^|->|[^A-Za-z0-9_'\\-])(?:choreography|endpoint|temporal|conform|session|family|import|prefix|scheme|axiom|param|place|relay|where|data|link|meet|move|read|repr|seat|talk|def|nu|ν)(?=$|->|[^A-Za-z0-9_']|-(?!>))"
+    },
+    "types": {
+      "name": "storage.type.muro",
+      "match": "(?<=^|->|[^A-Za-z0-9_'\\-])(?:evidence|internal|Always|Stream|String|Tensor|Bytes|Empty|Slice|WBool|Atom|Type|Unit|spec|Bit|F32|I64|Nat|Opt|U32|U64|Vec|run|U8)(?=$|->|[^A-Za-z0-9_']|-(?!>))"
+    },
+    "word-operators": {
+      "name": "keyword.operator.word.muro",
+      "match": "(?<=^|->|[^A-Za-z0-9_'\\-])(?:omega|lam1|lam|Pi)(?=$|->|[^A-Za-z0-9_']|-(?!>))"
+    },
+    "keywords": {
+      "name": "keyword.control.muro",
+      "match": "(?<=^|->|[^A-Za-z0-9_'\\-])(?:earlier_resolved|sliceUncons|eventually|matchEmpty|sliceAfter|sliceUntil|unresolved|bytesFold|sliceFold|bytesCat|bytesGet|bytesLen|interned|leads_to|nullable|optional|resolved|sliceGet|sliceLen|strBytes|ambient|boolean|bytesEq|chooses|earlier|implies|integer|rewrite|sliceEq|stopped|always|branch|buffer|choose|forall|map_of|motive|opened|second|strCat|strLen|string|uncons|unfold|wfalse|asI64|asU32|asU64|bisim|cover|cross|empty|false|first|fixed|inbox|match|never|offer|packI|pick0|pick1|roles|slice|start|strEq|third|toI64|toNat|toU32|toU64|tuple|while|wlink|wnone|wsome|wtrue|addc|addi|addt|andi|asU8|case|dead|divi|done|dual|else|fail|full|head|held|list|mulc|muli|node|noti|open|over|pick|recv|refl|remi|seen|send|shli|shri|stay|stop|subc|subi|tail|toU8|true|with|xori|and|any|end|eqi|fst|get|has|key|lei|let|lti|map|may|nil|not|ori|per|put|rec|rep|say|snd|suc|at|b0|b1|in|is|nd|of|on|or|rd|st|th|tt)(?=$|->|[^A-Za-z0-9_']|-(?!>))"
+    },
+    "numbers": {
+      "name": "constant.numeric.integer.muro",
+      "match": "\\b[0-9]+\\b"
+    },
+    "punctuation": {
+      "name": "punctuation.muro",
+      "match": "[(){},.:?|]|\\[|\\]|%"
+    },
+    "identifiers": {
+      "name": "variable.other.muro",
+      "match": "[A-Za-z_](?:[A-Za-z0-9_']|-(?!>))*"
+    }
+  }
+}
